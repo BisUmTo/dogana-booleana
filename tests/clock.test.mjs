@@ -1,0 +1,3 @@
+import test from'node:test';import assert from'node:assert/strict';import{DecisionClock}from'../docs/clock.mjs';
+test('only foreground decision intervals count',()=>{let now=0;const c=new DecisionClock(()=>now).reset(10000).resume();now=3000;c.pause();now=300000;assert.equal(c.elapsed,3000);assert.equal(c.remaining,7000);c.resume();now+=7000;assert.equal(c.expired,true);c.pause();c.pause();assert.equal(c.elapsed,10000);});
+test('untimed stages and restored time',()=>{let now=0;const c=new DecisionClock(()=>now).reset(null,700).resume();now=50000;assert.equal(c.remaining,null);assert.equal(c.expired,false);assert.equal(c.elapsed,50700);});
