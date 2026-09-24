@@ -1,0 +1,5 @@
+.DS_Store
+node_modules/
+design/background-originals/
+*.private.json
+private/

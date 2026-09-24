@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#190e30"><meta name="description" content="Un gioco di ingressi improbabili per imparare AND, OR e NOT. Guarda la regola, osserva l'ospite, decidi."><title>Dogana Booleana</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="app-shell">
+ <header class="topbar"><a class="brand" href="./" aria-label="Dogana Booleana, inizio"><span>DOGANA</span> <strong>BOOLEANA</strong></a><button id="settings-open" class="icon-button" aria-label="Impostazioni"></button></header>
+ <main id="main">
+  <section id="home" class="home-screen">
+   <div class="eyebrow">REGOLE ASSURDE. LOGICA PERFETTA.</div>
+   <h1>Sei tu<br>a decidere<br><em>chi entra.</em></h1>
+   <p class="home-copy">Un cartello. Un ospite. Due scelte.<br>Benvenuto alla Dogana Booleana.</p>
+   <div class="home-guest" id="home-guest" aria-hidden="true"></div>
+   <form id="start-form" class="start-form"><div class="field-row"><label>Il tuo nome<input id="student-name" name="name" autocomplete="off" maxlength="100" required placeholder="Nome e cognome"></label><label>Classe<input id="student-class" name="class" maxlength="80" required placeholder="1 Liceo"></label></div><button class="primary" type="submit">INIZIA IL TURNO <span aria-hidden="true">→</span></button></form>
+   <p class="local-note">I risultati restano su questo dispositivo.<br>Alla fine scarica il LOG per il docente.</p>
+   <button id="home-journey" class="journey-button" hidden>Ripassa un livello <span aria-hidden="true">↗</span></button>
+   <button id="home-infinite" class="journey-button" hidden>Modalità infinita <span aria-hidden="true">→</span></button>
+   <div class="home-links"><button id="home-training" class="text-button">Allenamento</button><button id="home-report" class="text-button">Il mio report</button><a href="prof.html">Area docente</a></div>
+  </section>
+  <section id="game" class="game-screen" hidden>
+   <div class="statusbar"><span id="level-label">Livello 1</span><span id="lives" role="img" aria-label="3 vite"></span><span id="timer" aria-label="Tempo restante" hidden><span id="timer-icon"></span><b id="timer-number"></b></span><button id="pause" class="icon-button" aria-label="Pausa"></button></div>
+   <div class="rule-board"><div class="rule-caption"><span>REGOLA D’INGRESSO</span><button id="rule-help" aria-label="Leggi la regola in parole" class="tiny-button">?</button></div><div id="rule" class="rule-expression"></div></div>
+   <div id="scene" class="scene"><div class="scene-caption"><span id="venue"></span><span id="guest-count"></span></div><div id="guest" class="guest" role="img"></div><div id="swipe-label" class="swipe-label" aria-hidden="true"></div><div id="stamp" class="stamp" aria-hidden="true"></div><div class="scene-joke" id="scene-joke"></div></div>
+   <div class="decision-bar"><button id="reject" class="decision reject" aria-label="0 Respingi"><span class="arrow" aria-hidden="true">←</span><span><b>0</b>RESPINGI</span></button><button id="admit" class="decision admit" aria-label="1 Ammetti"><span><b>1</b>AMMETTI</span><span class="arrow" aria-hidden="true">→</span></button></div>
+   <div class="bottom-hint"><span>Scorri o tocca</span><span class="keyboard-hint">Tastiera: ← 0 / 1 →</span></div>
+  </section>
+ </main>
+</div>
+<dialog id="panel" class="panel" aria-labelledby="panel-title"><div class="panel-inner" id="panel-content"></div></dialog>
+<div id="guest-announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<noscript>Per giocare serve JavaScript attivo nel browser.</noscript>
+<script type="module" src="app.mjs"></script></body></html>
